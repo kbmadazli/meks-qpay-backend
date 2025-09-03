@@ -1,0 +1,24 @@
+{
+  "name": "meks-qpay-backend",
+  "version": "1.0.0",
+  "description": "Static IP backend for QPay Direct POST 3D integration",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "axios": "^1.6.0",
+    "crypto": "^1.0.1",
+    "body-parser": "^1.20.2",
+    "helmet": "^7.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
