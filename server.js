@@ -30,11 +30,11 @@ app.use(express.urlencoded({ extended: true }));
 
 // Validate environment variables
 if (!QPAY_MERCHANT_USER || !QPAY_MERCHANT_PASSWORD || !QPAY_MERCHANT) {
-  console.error('Missing required environment variables:');
+  console.error('⚠️  Missing required environment variables:');
   console.error('QPAY_MERCHANT_USER:', !!QPAY_MERCHANT_USER);
   console.error('QPAY_MERCHANT_PASSWORD:', !!QPAY_MERCHANT_PASSWORD);
   console.error('QPAY_MERCHANT:', !!QPAY_MERCHANT);
-  process.exit(1);
+  console.error('⚠️  Server starting anyway for debugging...');
 }
 
 // Health check endpoint
