@@ -63,20 +63,15 @@ app.post('/qpay/session', async (req, res) => {
 
     // Prepare session token request
     const sessionRequest = {
-      ACTION: 'SALE',
-      MERCHANT: QPAY_MERCHANT,
+      ACTION: 'SESSIONTOKEN',
       MERCHANTUSER: QPAY_MERCHANT_USER,
       MERCHANTPASSWORD: QPAY_MERCHANT_PASSWORD,
+      MERCHANT: QPAY_MERCHANT,
       MERCHANTPAYMENTID: orderNumber,
       AMOUNT: amount,
       CURRENCY: currency,
-      CUSTOMER: customerEmail.split('@')[0], // Use email prefix as customer ID
-      CUSTOMERNAME: customerEmail.split('@')[0],
-      CUSTOMEREMAIL: customerEmail,
-      CUSTOMERPHONE: '5555555555', // Default phone for test
       RETURNURL: returnUrl,
       // Optional fields
-      CUSTOMERIP: req.ip || '127.0.0.1',
       SESSIONEXPIRY: '7'
     };
 
