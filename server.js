@@ -74,7 +74,8 @@ app.post('/qpay/session', async (req, res) => {
       RETURNURL: returnUrl,
       CUSTOMER: customerEmail.split('@')[0],
       CUSTOMERNAME: customerEmail.split('@')[0],
-      CUSTOMEREMAIL: customerEmail
+      CUSTOMEREMAIL: customerEmail,
+      ORDERITEMS: `Marine Service Package|${amount}|1|${amount}`
     };
 
     // Make request to QPay API (QPay expects form-encoded data)
