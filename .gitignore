@@ -1,5 +1,5 @@
 node_modules/
-# .env  # Temporarily commented out for Railway deployment
+.env
 .env.local
 .DS_Store
 logs/
@@ -11,3 +11,4 @@ dist/
 build/
 .vscode/
 .idea/
+.fly/

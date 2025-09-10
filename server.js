@@ -5,7 +5,7 @@ const crypto = require('crypto');
 const helmet = require('helmet');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 // Environment variables
 const QPAY_MERCHANT_USER = process.env.QPAY_MERCHANT_USER; // kbmadazli@gmail.com
