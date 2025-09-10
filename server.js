@@ -64,6 +64,7 @@ app.post('/qpay/session', async (req, res) => {
     // Prepare session token request
     const sessionRequest = {
       ACTION: 'SESSIONTOKEN',
+      SESSIONTYPE: 'SALE',
       MERCHANTUSER: QPAY_MERCHANT_USER,
       MERCHANTPASSWORD: QPAY_MERCHANT_PASSWORD,
       MERCHANT: QPAY_MERCHANT,
