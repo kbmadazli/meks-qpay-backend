@@ -77,10 +77,17 @@ app.post('/qpay/session', async (req, res) => {
       TIMESTAMP: new Date().toISOString()
     };
 
-    // Make request to QPay API
-    const response = await axios.post(QPAY_API_URL, sessionRequest, {
+    // Make request to QPay API (QPay expects form-encoded data)
+    const formData = new URLSearchParams();
+    Object.keys(sessionRequest).forEach(key => {
+      if (sessionRequest[key] !== undefined && sessionRequest[key] !== null) {
+        formData.append(key, sessionRequest[key]);
+      }
+    });
+
+    const response = await axios.post(QPAY_API_URL, formData, {
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded',
         'Accept': 'application/json',
         'User-Agent': 'MEKS-Marine-App/1.0'
       },
@@ -194,9 +201,16 @@ app.get('/qpay/status/:orderNumber', async (req, res) => {
       ORDERNUMBER: orderNumber
     };
 
-    const response = await axios.post(QPAY_API_URL, queryRequest, {
+    const formData = new URLSearchParams();
+    Object.keys(queryRequest).forEach(key => {
+      if (queryRequest[key] !== undefined && queryRequest[key] !== null) {
+        formData.append(key, queryRequest[key]);
+      }
+    });
+
+    const response = await axios.post(QPAY_API_URL, formData, {
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded',
         'Accept': 'application/json'
       },
       timeout: 30000
