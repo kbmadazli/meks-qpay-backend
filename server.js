@@ -71,7 +71,10 @@ app.post('/qpay/session', async (req, res) => {
       MERCHANTPAYMENTID: orderNumber,
       AMOUNT: amount,
       CURRENCY: currency,
-      RETURNURL: returnUrl
+      RETURNURL: returnUrl,
+      CUSTOMER: customerEmail.split('@')[0],
+      CUSTOMERNAME: customerEmail.split('@')[0],
+      CUSTOMEREMAIL: customerEmail
     };
 
     // Make request to QPay API (QPay expects form-encoded data)
