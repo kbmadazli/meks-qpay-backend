@@ -64,16 +64,14 @@ app.post('/qpay/session', async (req, res) => {
     // Prepare session token request
     const sessionRequest = {
       ACTION: 'SESSIONTOKEN',
-      SESSIONTYPE: 'SALE',
+      SESSIONTYPE: 'PAYMENTSESSION',
       MERCHANTUSER: QPAY_MERCHANT_USER,
       MERCHANTPASSWORD: QPAY_MERCHANT_PASSWORD,
       MERCHANT: QPAY_MERCHANT,
       MERCHANTPAYMENTID: orderNumber,
       AMOUNT: amount,
       CURRENCY: currency,
-      RETURNURL: returnUrl,
-      // Optional fields
-      SESSIONEXPIRY: '7'
+      RETURNURL: returnUrl
     };
 
     // Make request to QPay API (QPay expects form-encoded data)
